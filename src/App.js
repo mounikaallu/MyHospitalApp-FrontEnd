@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import Department from "./Components/Department";
+import {   Route, Routes } from "react-router-dom";
+import NavBar from "./Components/Navbar";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { AddDepartment } from "./Components/department-components/addDepartment";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component{
+    render(){
+      return(
+        <div>
+           <Provider store={store}> 
+          <NavBar />
+          <Routes>
+            
+            <Route path="/department" element={ <Department />} /> 
+            <Route path="/adddepartment" element={ <AddDepartment />} /> 
+
+            {/* <Route path="/employee" element={ <Emp />} /> 
+            <Route path="/sign-up" element={ <SignUp />} /> 
+            <Route path="/users" element={ <User />} /> 
+            <Route path="*" element={ <PageNotFound />} /> */}
+          </Routes>
+          </Provider>
+        
+        </div>
+      )
+    }
 }
-
-export default App;
