@@ -2,7 +2,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { listDepartment } from "../store/action/department"
 import AddDepartment from "./department-components/addDepartment";
-
+import DepartmentList from "./department-components/departmentList";
 export class Department extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +13,7 @@ export class Department extends Component {
   }
 
   componentDidMount() {
-     this.props.listDepartment();
+    //  this.props.listDepartment();
   }
 
   render() { 
@@ -36,31 +36,9 @@ export class Department extends Component {
           </div>
           <div className="col-lg-9">
             {this.state.componentNum===1?
-            <Department/>:<AddDepartment/>
+            <DepartmentList/>:<AddDepartment/>
             }
-            <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">ID</th>
-                  <th scope="col">Specialization</th>
-                 
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  this.props.departmentList.list.map((e, index) => (
-
-                    <tr key={e.id}>
-                      <th scope="row" key={e.id}> {index + 1}</th>
-                      <td>{e.id}</td>
-                      <td>{e.specialization}</td>
-                      
-                    </tr>
-
-                ))}   
-              </tbody>
-            </table>
+            
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import NavBar from "./Components/Navbar";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { AddDepartment } from "./Components/department-components/addDepartment";
+// import { AddDepartment } from "./Components/department-components/addDepartment";
 
 export default class App extends Component{
     render(){
@@ -16,7 +16,7 @@ export default class App extends Component{
           <Routes>
             
             <Route path="/department" element={ <Department />} /> 
-            <Route path="/adddepartment" element={ <AddDepartment />} /> 
+            {/* <Route path="/adddepartment" element={ <AddDepartment />} />  */}
 
             {/* <Route path="/employee" element={ <Emp />} /> 
             <Route path="/sign-up" element={ <SignUp />} /> 
